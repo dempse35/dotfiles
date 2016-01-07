@@ -1,0 +1,32 @@
+command+q= quit current app
+command+tab= cycle apps
+command+cntrl+f= fullscreen
+command+space= spotlight
+command+comma= Preferences
+
+
+
+
+CHROME
+command+w= close tab
+command+t= new tab
+cntrl+tab= cycle tabs
+
+TERMINAL
+control+z= stops current process
+control+c= kill process
+bg= backgrounds current process
+
+EMACS
+Control+x= do task, hold control but select next command
+	   s= save
+	   f=new file
+	   c= close
+	   
+Control+w=kill region (cut highlighted section)
+Control+y= yank (paste)
+Control+space= set point (start highlight)
+Control+x, (letgo), b= switch buffer
+Control+k, (letgo), k= kill buffer (like files)
+
+
