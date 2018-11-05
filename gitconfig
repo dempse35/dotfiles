@@ -18,10 +18,12 @@
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [core]
 	editor = emacs
-[credential]
-	helper = osxkeychain
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[credential]
+	helper = osxkeychain
+[tag]
+	sort = version:refname

@@ -11,9 +11,13 @@
 (setq-default c-basic-offset 2)
 (setq js-indent-level 2)
 
+;; Show column number
+(setq column-number-mode t)
+
 ;; Use Emacs terminfo, not system terminfo
 (setq system-uses-terminfo nil)
 
+;; Use Melpa for package installs
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -21,8 +25,13 @@
    '("melpa" . "http://melpa.org/packages/") t)
     (package-initialize))
 
+;; Load with-editor (from magit) for commit in emacs
+(require 'with-editor)
+
+;; Multi-term setup
 (require 'multi-term)
 (setq multi-term-program "/bin/zsh")
+(add-hook 'term-exec-hook 'with-editor-export-git-editor)
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables
@@ -33,6 +42,7 @@
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
  '(custom-enabled-themes (quote (manoj-dark)))
+ '(package-selected-packages (quote (magit yaml-mode puppet-mode multi-term)))
  '(term-bind-key-alist
    (quote
     (("C-c C-c" . term-interrupt-subjob)
@@ -58,7 +68,16 @@
      ("M-r" . term-send-reverse-search-history)
      ("M-," . term-send-raw)
      ("M-." . comint-dynamic-complete)))))
- 
+
+;; Switch between line and char mode in multi-term
+(defun term-toggle-mode ()
+  (interactive)
+  (if (term-in-line-mode)
+    (term-char-mode)
+      (term-line-mode)))
+
+(define-key term-mode-map (kbd "C-j") 'term-toggle-mode)
+
 ;; Enable ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
@@ -92,6 +111,11 @@
 ;; (standard-display-ascii ?\t "→")
 ;; Load pig-mode
 ;; (load-file "~/.dotfiles/pig-mode.el")
+
+;; Load Dockerfile mode
+(load-file "~/.dotfiles/emacs-modes/dockerfile-mode.el")
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; Load markdown-mode
 ;; (load-file "~/.dotfiles/markdown-mode.el")
@@ -131,3 +155,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
