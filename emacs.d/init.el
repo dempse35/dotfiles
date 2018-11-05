@@ -26,34 +26,38 @@
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
+ '(custom-enabled-themes (quote (manoj-dark)))
  '(term-bind-key-alist
-  (quote
-   (("C-c C-c" . term-interrupt-subjob)
-    ("C-c C-e" . term-send-esc)
-    ("C-j" . term-toggle-mode)
-    ("C-p" . previous-line)
-    ("C-n" . next-line)
-    ("C-s" . isearch-forward)
-    ;; ("C-r" . isearch-backward)    
-    ("C-r" . term-send-reverse-search-history)
-    ("C-m" . term-send-return)
-    ("C-y" . term-paste)
-    ("C-z" . term-stop-subjob)
-    ("M-f" . term-send-forward-word)
-    ("M-b" . term-send-backward-word)
-    ("M-o" . term-send-backspace)
-    ("M-p" . term-send-up)
-    ("M-n" . term-send-down)
-    ("M-M" . term-send-forward-kill-word)
-    ("M-N" . term-send-backward-kill-word)
-    ("<C-backspace>" . term-send-backward-kill-word)
-    ("<M-backspace>" . term-send-backward-kill-word)
-    ("<M-DEL>" . term-send-backward-kill-word)
-    ("M-r" . term-send-reverse-search-history)
-    ("M-," . term-send-raw)
-    ("M-." . comint-dynamic-complete)))))
+   (quote
+    (("C-c C-c" . term-interrupt-subjob)
+     ("C-c C-e" . term-send-esc)
+     ("C-j" . term-toggle-mode)
+     ("C-p" . previous-line)
+     ("C-n" . next-line)
+     ("C-s" . isearch-forward)
+     ("C-r" . term-send-reverse-search-history)
+     ("C-m" . term-send-return)
+     ("C-y" . term-paste)
+     ("C-z" . term-stop-subjob)
+     ("M-f" . term-send-forward-word)
+     ("M-b" . term-send-backward-word)
+     ("M-o" . term-send-backspace)
+     ("M-p" . term-send-up)
+     ("M-n" . term-send-down)
+     ("M-M" . term-send-forward-kill-word)
+     ("M-N" . term-send-backward-kill-word)
+     ("<C-backspace>" . term-send-backward-kill-word)
+     ("<M-backspace>" . term-send-backward-kill-word)
+     ("<M-DEL>" . term-send-backward-kill-word)
+     ("M-r" . term-send-reverse-search-history)
+     ("M-," . term-send-raw)
+     ("M-." . comint-dynamic-complete)))))
  
 ;; Enable ido mode
 (setq ido-enable-flex-matching t)
@@ -121,3 +125,9 @@
       (term-line-mode)))
 
 (define-key term-mode-map (kbd "C-j") 'term-toggle-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

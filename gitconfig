@@ -1,12 +1,11 @@
 [user]
-	email = dempsey.travis@gmail.com
-	name = Travis Dempsey
+	email = james.dempsey420@gmail.com
+	name = James Dempsey
 [color]
 	ui = true
 [github]
-	user = kornypoet
+	user = dempse35
 [alias]
-	pre  = "!bash /usr/local/lib/open-r10k-repo-pull-request trdempsey venmo"
 	last = log -1 HEAD
 	st   = status
 	ci   = commit
@@ -14,9 +13,15 @@
 	br   = branch
 	df   = diff
 	sm   = submodule
+	type = cat-file -t
+	dump = cat-file -p
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [core]
 	editor = emacs
 [credential]
 	helper = osxkeychain
-[hub]
-	host = github.braintreeps.com
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

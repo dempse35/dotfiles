@@ -27,6 +27,10 @@ Control+w=kill region (cut highlighted section)
 Control+y= yank (paste)
 Control+space= set point (start highlight)
 Control+x, (letgo), b= switch buffer
+	   	    h= select all buffer. the whole file
 Control+k, (letgo), k= kill buffer (like files)
-
+Control+x, (letgo), 1= one window
+	   	    2= two window vert
+		    3= two windo horizon
+Meta (alt) + X = functions, modes, start typing press tab to see option
 
