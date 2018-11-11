@@ -70,7 +70,7 @@ function bcuc() {
 }
 
 # Git related shortcuts
-alias g="hub"
+alias g="git"
 
 # Create a gist from a file, name it after that file, and copy URL to clipboard
 function gst() {
